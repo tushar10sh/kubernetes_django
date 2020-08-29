@@ -1,13 +1,14 @@
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: postgres-pvc
-  labels:
-    type: local
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
-  volumeName: postgres-pv
+# Not required as statefulset has volumeClaimTemplates 
+# kind: PersistentVolumeClaim
+# apiVersion: v1
+# metadata:
+#   name: postgres-pvc
+#   labels:
+#     type: local
+# spec:
+#   accessModes:
+#     - ReadWriteMany
+#   resources:
+#     requests:
+#       storage: 1Gi
+#   volumeName: postgres-pv
