@@ -4,10 +4,15 @@ Step by Step guide to deploy Django application in Kubernetes with Postgres DB (
 Flower is also deployed for celery workload visualizations.
 
 <u>1. Build django docker image </u>
+  <br>
   a. Apart from django server deployment, other deployments such as redis, celery and django migrations jobs will require a container image that doesn't have 
-     a <i>CMD python manage.py runserver 0.0.0.0:8000</i>. 
+  <br>
+     a <code>CMD python manage.py runserver 0.0.0.0:8000</code>. 
+  <br>
   b. To build this image, make sure this line is commented and build a container image 
+  <br>
      <i> docker build -t local/kube_django_testapp:pre . </i>
+  <br>
   c. Now for django server deployment build another image with this line not commented so that server is started as soon as container is up.
      <i> docker build -t local/kube_django_testapp:part2 . </i>
   d. Transfer these images to your worker nodes either via a local private docker registry setup or manuall saving this image as TAR 
